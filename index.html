@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C# тест — 150 сұрақ</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1d2330;--mut:#6b7385;--bd:#dfe3ee;--ac:#3b5bdb;--ok:#2b9348;--okbg:#e6f6ec;--no:#d00000;--nobg:#fdeaea}
+@media (prefers-color-scheme:dark){:root{--bg:#14171f;--card:#1d212c;--tx:#e8ebf3;--mut:#98a1b5;--bd:#2d3342;--ac:#7c93ff;--ok:#4cc16f;--okbg:#17301f;--no:#ff6b6b;--nobg:#3a1c1c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:8px 0 12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;margin-bottom:14px}
+.bar{height:8px;background:var(--bd);border-radius:6px;overflow:hidden}
+.bar>div{height:100%;background:var(--ac);width:0;transition:width .2s}
+.top{display:flex;justify-content:space-between;color:var(--mut);font-size:14px;margin-bottom:6px;gap:8px;flex-wrap:wrap}
+.q{font-weight:600;margin:0 0 10px;white-space:pre-wrap}
+pre{background:#0f1320;color:#e6e9f5;padding:12px;border-radius:10px;overflow:auto;font:14px/1.45 ui-monospace,Consolas,monospace;margin:0 0 14px}
+.opt{display:block;width:100%;text-align:left;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:11px 14px;margin:8px 0;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--ac)}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.no{background:var(--nobg);border-color:var(--no)}
+.opt:disabled{cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+button.b{background:var(--ac);color:#fff;border:0;border-radius:10px;padding:10px 16px;font:inherit;cursor:pointer}
+button.b.sec{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+button.b:disabled{opacity:.4;cursor:default}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:5px}
+.grid button{padding:6px 0;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;cursor:pointer;font:13px inherit}
+.grid button.cur{outline:2px solid var(--ac)}
+.grid button.ok{background:var(--okbg);border-color:var(--ok)}
+.grid button.no{background:var(--nobg);border-color:var(--no)}
+.res{text-align:center}
+.res .big{font-size:40px;font-weight:700}
+.hide{display:none}
+label.sw{font-size:14px;color:var(--mut);display:inline-flex;gap:6px;align-items:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>C# / ООП тест — 150 сұрақ</h1>
+  <div class="card" id="quiz">
+    <div class="top"><span id="pos"></span><span id="score"></span></div>
+    <div class="bar"><div id="prog"></div></div>
+    <div style="height:14px"></div>
+    <p class="q" id="qt"></p>
+    <pre id="qc" class="hide"></pre>
+    <div id="opts"></div>
+    <div class="row">
+      <button class="b sec" id="prev">← Алдыңғы</button>
+      <button class="b" id="next">Келесі →</button>
+      <button class="b sec" id="finish">Аяқтау</button>
+    </div>
+  </div>
+  <div class="card hide" id="result"></div>
+  <div class="card">
+    <div class="top"><span>Сұрақтар</span>
+      <span>
+        <label class="sw"><input type="checkbox" id="shuf"> Сұрақтарды араластыру</label>
+        <button class="b sec" id="restart" style="padding:4px 10px;margin-left:8px">Қайта бастау</button>
+      </span>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</div>
+
+<script type="text/plain" id="data">
+#1
+Объектіге бағытталған бағдарламалау парадигмасының негізгі тұжырымдамасы қандай?
+A) Тек функцияларды пайдалану
+B) Бағдарламаны объектілер мен кластар негізінде құру
+C) Тек айнымалылармен жұмыс істеу
+D) Кодты тек бір файлда жазу
+=B
+#2
+Әдісті шақырған кезде C# тіліндегі берілген код нені шығарады?
+class Person
+{
+    public string Name = "Alex";
+}
+Person p = new Person();
+Console.Write(p.Name);
+A) Person
+B) Name
+C) Alex
+D) Қате
+=C
+#3
+Қандай қол жеткізу модификаторы класс элементін ТЕК осы класстың ішінде қолжетімді етеді?
+A) public
+B) protected
+C) internal
+D) private
+=D
+#4
+C# тіліндегі класс конструкторы қандай рөл атқарады?
+A) Объектіні жою
+B) Объектіні құру және бастапқы мәндерін орнату
+C) Класты мұрагерлікке алу
+D) Әдістерді өшіру
+=B
+#5
+C# тіліндегі келесі код үзіндісі нені шығарады?
+class Car
+{
+    public int Speed;
+    public Car(int speed)
+    {
+        Speed = speed;
+    }
+}
+Car c = new Car(100);
+Console.Write(c.Speed);
+A) 0
+B) 100
+C) speed
+D) Қате
+=B
+#6
+Объектіге бағытталған бағдарламалауда (ООП) инкапсуляция деп нені түсінеді?
+A) Бір кластан бірнеше класс құру
+B) Деректер мен әдістерді біріктіріп, деректерге қолжетімділікті шектеу
+C) Бір әдісті бірнеше рет шақыру
+D) Объектілерді жою
+=B
+#7
+C# тіліндегі қандай қол жеткізу модификаторы класс мүшесіне ағымдағы жинақ (.dll/.exe) шегінде қолжетімділікке рұқсат береді?
+A) private
+B) protected
+C) internal
+D) public
+=C
+#8
+Жеке (private) айнымалыға қол жеткізуге тырысқанда бұл код нені шығарады?
+class Account
+{
+    private int balance = 500;
+}
+Account acc = new Account();
+Console.Write(acc.balance);
+A) 500
+B) 0
+C) null
+D) Компиляция қатесі
+=D
+#9
+C# тілінде автоқасиеттер (Auto-Properties) не үшін қолданылады?
+A) Класты автоматты түрде жою үшін
+B) Қасиеттерді қысқа түрде жариялау үшін
+C) Объектіні көшіру үшін
+D) Цикл құру үшін
+=B
+#10
+Логикасы бар қасиетті қолданатын C# код үзіндісі нені шығарады?
+class User
+{
+    private int _age;
+    public int Age
+    {
+        get => _age;
+        set => _age = value < 0 ? 0 : value;
+    }
+}
+User u = new User();
+u.Age = -15;
+Console.Write(u.Age);
+A) -15
+B) 15
+C) 0
+D) Қате
+=C
+#11
+C# тілінде бір класты екіншісінен мұрагерлікке алу үшін қандай кілт сөз қолданылады?
+A) implements
+B) extends
+C) base
+D) : (қос нүкте)
+=D
+#12
+Мұраланған әдісті шақырған кезде бұл код нені шығарады?
+class Animal
+{
+    public void Eat() => Console.Write("Food");
+}
+class Dog : Animal { }Dog d = new Dog();
+d.Eat();
+A) Dog
+B) Animal
+C) Food
+D) Қате
+=C
+#13
+C# тілінде негізгі класста еншілес класқа әдісті қайта анықтауға рұқсат беру үшін қандай кілт сөз қолданылады?
+A) override
+B) virtual
+C) sealed
+D) static
+=B
+#14
+C# тілінде негізгі класстың виртуалды әдісін қайта анықтау үшін еншілес класста қандай кілт сөз қолданылады?
+A) virtual
+B) new
+C) override
+D) base
+=C
+#15
+Полиморфизмі бар келесі код үзіндісі нені шығарады?
+class Printer
+{
+    public virtual void Print() => Console.Write("Base");
+}
+class ColorPrinter : Printer
+{
+    public override void Print() => Console.Write("Color");
+}
+Printer p = new ColorPrinter();
+p.Print();
+A) Base
+B) Color
+C) Printer
+D) Қате
+=B
+#16
+Негізгі класқа base кілт сөзі арқылы қол жеткізген кезде бұл код нені шығарады?
+class Parent
+{
+    public virtual void Greet() => Console.Write("Hi");
+}
+class Child : Parent
+{
+    public override void Greet()
+    {
+        base.Greet();
+        Console.Write("!");
+    }
+}
+Child c = new Child();
+c.Greet();
+A) Hi
+B) !
+C) Hi!
+D) Қате
+=C
+#17
+C# тілінде қандай кілт сөз осы класстан әрі қарай мұрагерлікке алуға тыйым салады?
+A) static
+B) virtual
+C) abstract
+D) sealed
+=D
+#18
+sealed модификаторы бар класстан мұрагерлікке алуға тырысқанда қандай қате орын алады?
+sealed class FinalClass { }class SubClass : FinalClass { }
+A) Орындау қатесі
+B) Компиляция қатесі
+C) Ескерту ғана шығады
+D) Қате болмайды
+=B
+#19
+C# тіліндегі абстрактілі класс дегеніміз не?
+A) Тек объектілерді сақтайтын класс
+B) Тікелей объектісін жасауға болмайтын және мұрагерлікке арналған класс
+C) Тек статикалық әдістерден тұратын класс
+D) Жойылған класс
+=B
+#20
+Абстрактілі класы бар келесі код үзіндісі нені шығарады?
+abstract class Appliance
+{
+    public abstract void TurnOn();
+}
+class Lamp : Appliance
+{
+    public override void TurnOn() => Console.Write("Light");
+}
+Appliance a = new Lamp();
+a.TurnOn();
+A) Appliance
+B) TurnOn
+C) Light
+D) Қате
+=C
+#21
+C# тіліндегі интерфейс (interface) дегеніміз не?
+A) Объектіні жою әдісі
+B) Класс орындауы тиіс мүшелердің келісімшартын анықтайтын құрылым
+C) Деректер базасы
+D) Айнымалының түрі
+=B
+#22
+C# тілінде класс интерфейсті іске асыру үшін қандай кілт сөз қолданылады?
+A) implements
+B) interface
+C) : (қос нүкте)
+D) extends
+=C
+#23
+C# тілінде бір класс бір мезгілде қанша интерфейсті іске асыра алады?
+A) Тек біреуін
+B) Екеуін ғана
+C) Үшеуін ғана
+D) Қажет болғанша бірнешеуін
+=D
+#24
+C# тілінде интерфейсті анық (explicit) іске асырған кезде код нені шығарады?
+interface IRunner
+{
+    void Run();
+}
+class Athlete : IRunner
+{
+    void IRunner.Run() => Console.Write("Running");
+}
+IRunner r = new Athlete();
+r.Run();
+A) Athlete
+B) Run
+C) Running
+D) Қате
+=C
+#25
+C# тіліндегі қандай кілт сөз объект жасамай-ақ қолжетімді статикалық әдіс немесе класс жасауға мүмкіндік береді?
+A) virtual
+B) static
+C) private
+D) abstract
+=B
+#26
+Статикалық қасиеті бар келесі код үзіндісі нені шығарады?
+class Counter
+{
+    public static int Count = 0;
+    public Counter()
+    {
+        Count++;
+    }
+}
+new Counter();
+new Counter();
+Console.Write(Counter.Count);
+A) 0
+B) 1
+C) 2
+D) Қате
+=C
+#27
+C# тіліндегі мәндік тип (struct) пен сілтемелік тип (class) арасындағы басты айырмашылық неде?
+A) Екеуі де тек сілтеме арқылы беріледі
+B) Struct — мәндік тип, ал class — сілтемелік тип
+C) Class тек сандарды сақтайды
+D) Struct мұрагерлікке арналған
+=B
+#28
+Құрылымды әдіске бергенде келесі код үзіндісі нені шығарады?
+struct Point
+{
+    public int X;
+}
+static void Change(Point p)
+{
+    p.X = 100;
+}
+Point pt = new Point { X = 10 };
+Change(pt);
+Console.Write(pt.X);
+A) 100
+B) 10
+C) 0
+D) Қате
+=B
+#29
+КЛАССТЫ әдіске бергенде ұқсас код үзіндісі нені шығарады?
+class PointClass
+{
+    public int X;
+}
+static void Change(PointClass p)
+{
+    p.X = 100;
+}
+PointClass pt = new PointClass { X = 10 };
+Change(pt);
+Console.Write(pt.X);
+A) 10
+B) 0
+C) 100
+D) Қате
+=C
+#30
+C# 9.0+ нұсқасында жазба типтері (record) не үшін қолданылады?
+A) Тек цикл құру үшін
+B) Деректерді сақтауға және мәндері бойынша салыстыруға ыңғайлы тип құру үшін
+C) Файлдарды жою үшін
+D) Тек интерфейстерді жасау үшін
+=B
+#31
+Екі жазбаны (record) салыстырған кезде C# кодының бұл үзіндісі нені шығарады?
+public record Item(string Name, int Price);
+Item i1 = new Item("Pen", 10);
+Item i2 = new Item("Pen", 10);
+Console.Write(i1 == i2);
+A) False
+B) True
+C) Pen
+D) Қате
+=B
+#32
+Қандай кілт сөз параметрді әдіске сілтеме бойынша (by reference) оны өзгерту мүмкіндігімен беруге мүмкіндік береді?
+A) out
+B) ref
+C) static
+D) const
+=B
+#33
+ref модификаторын қолданатын бұл код нені шығарады?
+static void Modify(ref int n) => n += 5;
+int num = 10;
+Modify(ref num);
+Console.Write(num);
+A) 10
+B) 5
+C) 15
+D) 0
+=C
+#34
+C# тіліндегі out модификаторының ref модификаторынан айырмашылығы неде?
+A) out параметріне әдіс ішінде міндетті түрде мән берілуі керек
+B) out тек сандарға қолданылады
+C) ref мәнді қайтармайды
+D) Екеуінің айырмашылығы жоқ
+=A
+#35
+this кілт сөзі бар келесі код үзіндісі нені шығарады?
+class Box
+{
+    private int w;
+    public Box(int w)
+    {
+        this.w = w;
+    }
+    public int GetW() => w;
+}
+Box b = new Box(42);
+Console.Write(b.GetW());
+A) 0
+B) 42
+C) w
+D) Қате
+=B
+#36
+C# тілінде деструктор (~ClassName()) шақырылғанда не болады?
+A) Объект автоматты түрде құрылады
+B) Объектіні жою алдында тазалау әрекеттері орындалады
+C) Конструктор шақырылады
+D) Класс мұрагерлікке алынады
+=B
+#37
+Класста аты бірдей, бірақ параметрлерінің типтері/саны әртүрлі бірнеше әдіс жарияланса, не болады?
+A) Компиляция қатесі болады
+B) Әдістердің атауы автоматты өзгереді
+C) Әдістерді қайта жүктеу (Overloading) орындалады
+D) Класс жойылады
+=C
+#38
+Келесі қайта жүктелген әдіс нені шығарады?
+class Calc
+{
+    public int Add(int a, int b) => a + b;
+    public string Add(string a, string b) => a + b;
+}
+Calc c = new Calc();
+Console.Write(c.Add("1", "2"));
+A) 3
+B) 12
+C) 1
+D) Қате
+=B
+#39
+Бағдарламалық жасақтаманы жобалауда SOLID аббревиатурасы нені білдіреді?
+A) Бағдарламалау тілдерінің атауы
+B) Объектіге бағытталған жобалаудың бес негізгі принципі
+C) Деректер базасының түрлері
+D) Компиляция командалары
+=B
+#40
+Бірыңғай жауапкершілік принципі (Single Responsibility Principle — SRP) неде?
+A) Класс тек бір ғана жауапкершілікке ие болуы керек
+B) Класс барлық жұмысты орындауы керек
+C) Әр класта тек бір әдіс болуы керек
+D) Класта тек бір айнымалы болуы керек
+=A
+#41
+Егер класс SRP принципін бұзса (God Object / «Құдайлық объект» болып табылса), қандай мәселе туындайды?
+A) Код жылдамдайды
+B) Класс тым көп міндет атқарып, оны өзгерту және қолдау қиындайды
+C) Бағдарлама көлемі азаяды
+D) Қателер толығымен жойылады
+=B
+#42
+Ашықтық/жабықтық принципі (Open/Closed Principle — OCP) неде?
+A) Класс өзгертуге ашық, кеңейтуге жабық болуы керек
+B) Бағдарлама тек жабық болуы керек
+C) Бағдарламаны өзгертуге және кеңейтуге болмайды
+D) Класс тек бір рет құрылуы керек
+=A
+#43
+Барбара Лисков алмастыру принципі (Liskov Substitution Principle — LSP) нені растайды?
+A) Еншілес класс негізгі кластың орнына қолданылғанда бағдарлама дұрыс жұмыс істеуі керек
+B) Әр класта конструктор болуы керек
+C) Кластар тек private болуы керек
+D) Мұрагерлікке тыйым салынады
+=A
+#44
+Интерфейстерді бөлу принципі (Interface Segregation Principle — ISP) неде?
+A) Бір үлкен интерфейс құру керек
+B) Кластар қолданбайтын әдістерге тәуелді болмауы керек
+C) Барлық әдістер статикалық болуы керек
+D) Интерфейстерді қолдануға болмайды
+=B
+#45
+Тәуелділіктерді инверсиялау принципі (Dependency Inversion Principle — DIP) неде?
+A) Жоғары деңгейлі модульдер төменгі деңгейлі модульдерге тікелей тәуелді болуы керек
+B) Модульдер нақты кластарға ғана тәуелді болуы керек
+C) Жоғары және төмен деңгейлі модульдер абстракцияларға тәуелді болуы керек
+D) Барлық кластар бір файлда болуы керек
+=C
+#46
+Код байланыстылығының қандай мәселесі «Жоғары байланыстылық» (High Coupling) терминімен белгіленеді?
+A) Модульдердің бір-біріне тым тәуелді болуы
+B) Модульдердің мүлдем байланыспауы
+C) Кодтың қысқа болуы
+D) Әдістердің саны аз болуы
+=A
+#47
+C# модульдерін жобалау кезінде код сапасының қандай қасиетіне ұмтылу керек?
+A) Жоғары байланыстылық және төмен тұтастық
+B) Төмен байланыстылық және жоғары тұтастық
+C) Барлық кластарды біріктіру
+D) Қайталанатын кодты көбейту
+=B
+#48
+C# тіліндегі ерекше жағдайларды өңдеудің бұл блогы нені шығарады?
+try
+{
+    int x = 0;
+    int y = 10 / x;
+}
+catch (DivideByZeroException)
+{
+    Console.Write("ZeroErr");
+}
+finally
+{
+    Console.Write("Finally");
+}
+A) ZeroErr
+B) Finally
+C) ZeroErrFinally
+D) Қате
+=C
+#49
+Пайдаланушылық ерекше жағдайды генерациялаған кезде бұл код нені шығарады?
+static void CheckAge(int age)
+{
+    if (age < 0) throw new ArgumentException("Invalid");
+}
+try
+{
+    CheckAge(-5);
+}
+catch (ArgumentException ex)
+{
+    Console.Write(ex.Message);
+}
+A) -5
+B) Invalid
+C) ArgumentException
+D) Қате өңделмейді
+=B
+#50
+catch (Exception ex) блогының ішінде throw; және throw ex; шақыруларының басты айырмашылығы неде?
+A) Екеуі де қатені жояды
+B) throw; бастапқы стек ақпаратын сақтайды, ал throw ex; оны жаңадан басталғандай өзгерте алады
+C) throw; тек сандарға қолданылады
+D) Екеуінің айырмашылығы жоқ
+=B
+#51
+Қандай жобалау паттерні (Design Pattern) жүйеде класстың тек бір данасының болуын кепілдендіреді?
+A) Factory Method
+B) Strategy
+C) Singleton
+D) Observer
+=C
+#52
+Singleton паттернін іске асыратын бұл C# коды нені шығарады?
+class Singleton
+{
+    private static Singleton _instance;
+    public static Singleton Instance => _instance ??= new Singleton();
+}
+var s1 = Singleton.Instance;
+var s2 = Singleton.Instance;
+Console.Write(s1 == s2);
+A) False
+B) True
+C) null
+D) Қате
+=B
+#53
+«Фабрикалық әдіс» (Factory Method) паттерні не үшін қолданылады?
+A) Объектілерді құру процесін олардың нақты кластарынан бөлу үшін
+B) Файлдарды жою үшін
+C) Бағдарламаны тоқтату үшін
+D) Айнымалыларды салыстыру үшін
+=A
+#54
+«Стратегия» (Strategy) паттерні не үшін қолданылады?
+A) Бір объектіні бірнеше рет құру үшін
+B) Алгоритмдерді өзара ауыстырып қолдануға мүмкіндік беру үшін
+C) Класты мұрагерліктен қорғау үшін
+D) Деректерді файлға жазу үшін
+=B
+#55
+Объектіге бағытталған модульдегі «Код иісі» (Code Smell) деген не?
+A) Бағдарламаның синтаксистік қатесі
+B) Кодта болашақта мәселе туғызуы мүмкін нашар жобалау белгілері
+C) Компьютердің баяу жұмыс істеуі
+D) Кодтың түсі
+=B
+#56
+Бағдарламалық модульді рефакторингтеу деп нені түсінеді?
+A) Бағдарламаға жаңа функция қосу
+B) Кодтың сыртқы жұмысын өзгертпей, ішкі құрылымын жақсарту
+C) Бағдарламаны толығымен жою
+D) Кодты басқа тілге ауыстыру
+=B
+#57
+DRY (Don't Repeat Yourself) принципін қолданудың басты ережесі қандай?
+A) Кодты үнемі қайталау
+B) Бірдей логиканы бірнеше рет жазбау
+C) Әр әдісті өшіру
+D) Барлық кодты бір класқа жазу
+=B
+#58
+KISS (Keep It Simple, Stupid) принципінің мәні неде?
+A) Кодты барынша күрделі жазу
+B) Бағдарламаны қарапайым және түсінікті етіп құру
+C) Көптеген класс пайдалану
+D) Қателерді елемеу
+=B
+#59
+YAGNI (You Aren't Gonna Need It) принципі нені растайды?
+A) Болашақта қажет болуы мүмкін барлық функцияларды алдын ала қосу
+B) Қажет емес функционалдылықты алдын ала әзірлемеу
+C) Кодты міндетті түрде қайталау
+D) Барлық кластарды статикалық ету
+=B
+#60
+Қорғаныс шарты (Guard Clause) бар келесі код үзіндісі нені шығарады?
+static void Process(string data)
+{
+    if (string.IsNullOrEmpty(data)) return;
+    Console.Write("Valid");
+}
+Process(null);
+Process("Test");
+A) Valid
+B) Екі рет Valid
+C) Ештеңе шығармайды
+D) Қате
+=A
+#61
+null-мен біріктіру операторын (??) қолданғанда бұл код нені шығарады?
+string input = null;
+string result = input ?? "Default";
+Console.Write(result);
+A) null
+B) Default
+C) input
+D) Қате
+=B
+#62
+null-мен біріктіру арқылы меншіктеу операторы (??=) бар C# код үзіндісі нені шығарады?
+string title = null;
+title ??= "C# Guide";
+Console.Write(title);
+A) null
+B) title
+C) C# Guide
+D) Қате
+=C
+#63
+C# тілінде null-ды тексеріп өтудің шартты операторы (?.) не үшін қолданылады?
+A) Объектіні міндетті түрде құру үшін
+B) Объект null болмаса, оның мүшесіне қауіпсіз қол жеткізу үшін
+C) Айнымалыны жою үшін
+D) Класты мұрагерлікке алу үшін
+=B
+#64
+?. операторы бар келесі код үзіндісі нені шығарады?
+string text = null;
+Console.Write(text?.Length ?? 0);
+A) null
+B) 4
+C) 0
+D) Қате
+=C
+#65
+Бағдарламалық жасақтаманың модульділігі деп нені түсінеді?
+A) Бағдарламаны бір үлкен файлға біріктіру
+B) Бағдарламаны жеке, өзара байланысқан модульдерге бөлу
+C) Барлық функцияларды жою
+D) Тек бір класс қолдану
+=B
+#66
+Inversion of Control (IoC / Басқаруды инверсиялау) деген не?
+A) Бағдарламаны тоқтату әдісі
+B) Объектілерді басқару мен тәуелділіктерді құру жауапкершілігін сыртқы механизмге беру принципі
+C) Айнымалыларды өзгерту
+D) Кластарды жою
+=B
+#67
+Тәуелділіктерді объектіге конструктор немесе қасиеттер арқылы беру жолымен IoC принципін қандай техника іске асырады?
+A) Inheritance
+B) Encapsulation
+C) Dependency Injection
+D) Polymorphism
+=C
+#68
+Тәуелділікті конструктор арқылы енгізетін келесі C# код үзіндісі нені шығарады?
+interface ILogger
+{
+    void Log(string msg);
+}
+class ConsoleLogger : ILogger
+{
+    public void Log(string msg) => Console.Write(msg);
+}
+class Service
+{
+    private readonly ILogger _logger;
+    public Service(ILogger logger) => _logger = logger;
+    public void Run() => _logger.Log("Done");
+}
+new Service(new ConsoleLogger()).Run();
+A) ILogger
+B) ConsoleLogger
+C) Done
+D) Қате
+=C
+#69
+Модульдік тесттер жазу кезінде интерфейстерді пайдаланудың артықшылығы неде?
+A) Тестілеуді қиындатады
+B) Нақты іске асыруды тестілік объектілермен алмастыруға мүмкіндік береді
+C) Кодты автоматты түрде жояды
+D) Компиляцияны тоқтатады
+=B
+#70
+C# 10+ нұсқасында ArgumentNullException.ThrowIfNull операторының көмегімен сілтемелік типке null мәнін меншіктеуге әрекет жасағанда C# коды нені шығарады?
+static void Process(string arg)
+{
+    ArgumentNullException.ThrowIfNull(arg);
+}
+try
+{
+    Process(null);
+}
+catch (ArgumentNullException)
+{
+    Console.Write("CatchNull");
+}
+A) null
+B) CatchNull
+C) ArgumentNullException
+D) Қате өңделмейді
+=B
+#71
+Екі түрлі ерекше жағдайды өңдеген кезде бұл код нені шығарады?
+try
+{
+    int[] arr =
+    {
+        1
+    }
+    ;
+    Console.Write(arr[5]);
+}
+catch (IndexOutOfRangeException)
+{
+    Console.Write("IndexErr");
+}
+catch (Exception)
+{
+    Console.Write("GenErr");
+}
+A) GenErr
+B) IndexErr
+C) 1
+D) Қате
+=B
+#72
+catch (Exception) блогының мамандандырылған ерекше жағдай блоктарынан КЕЙІН орналасуы неліктен ұсынылады?
+A) Жалпы Exception барлық ерекшеліктерді ұстап қалуы мүмкін, сондықтан арнайы блоктарға кезек беру керек
+B) Компилятор тек соңғы блокты орындайды
+C) Exception тек соңында жазылуы міндетті емес
+D) Бағдарламаның жылдамдығын арттыру үшін
+=A
+#73
+finally блогы бар келесі C# код үзіндісі нені шығарады?
+static int GetVal()
+{
+    try
+    {
+        return 10;
+    }
+    finally
+    {
+        Console.Write("Fin");
+    }
+}
+Console.Write(GetVal());
+A) 10
+B) Fin
+C) Fin10
+D) Қате
+=C
+#74
+«Кодты қайта пайдалану» (Code Reuse) ұғымы деп нені түсінеді?
+A) Бір кодты әр уақытта қайта жазу
+B) Бұрын жазылған кодты басқа бағдарламаларда немесе бөліктерде қайта қолдану
+C) Кодты толығымен жою
+D) Тек жаңа айнымалылар құру
+=B
+#75
+C# тілінде есімдер кеңістігі (namespace) не үшін қолданылады?
+A) Кластар мен басқа типтерді топтастыру және атаулар қақтығысын болдырмау үшін
+B) Файлдарды жою үшін
+C) Бағдарламаны іске қосу үшін
+D) Айнымалыларды санға айналдыру үшін
+=A
+#76
+Ресурсты автоматты түрде босату үшін using конструкциясын қолданатын C# кодының бұл үзіндісі нені шығарады?
+class Resource : IDisposable
+{
+    public void Dispose() => Console.Write("Disposed");
+}
+using (var r = new Resource())
+{
+    Console.Write("Work");
+}
+A) Work
+B) Disposed
+C) WorkDisposed
+D) Қате
+=C
+#77
+Roslyn/MSBuild компиляторы C# бастапқы кодын қандай аралық тілге трансляциялайды?
+A) HTML
+B) SQL
+C) CIL/MSIL
+D) JavaScript
+=C
+#78
+.NET ортасындағы CLR-дің JIT-компиляторы (Just-In-Time) қандай функция атқарады?
+A) C# кодын HTML-ге айналдырады
+B) Аралық IL кодын орындалатын машиналық кодқа айналдырады
+C) Файлдарды архивтейді
+D) Деректер базасын құрады
+=B
+#79
+.NET-тегі Debug және Release құрастыру конфигурацияларының басты айырмашылығы неде?
+A) Debug жөндеуге арналған, ал Release өнімділік пен жариялауға оңтайландырылған
+B) Екеуі толығымен бірдей
+C) Debug тек интернетте жұмыс істейді
+D) Release тек қателерді іздеуге арналған
+=A
+#80
+C# жобасындағы .csproj кеңейтімді файл не болып табылады?
+A) Сурет файлы
+B) Жоба конфигурациясы мен параметрлерін сақтайтын XML файл
+C) Дайын бағдарлама
+D) Деректер базасы
+=B
+#81
+.NET экожүйесіндегі NuGet пакеттер менеджері не болып табылады?
+A) Бағдарламалау тілі
+B) Кітапханалар мен пакеттерді орнату және басқару құралы
+C) Графикалық редактор
+D) Компьютер драйвері
+=B
+#82
+C# тілінде жобаны құрастыру үшін dotnet пәрмен жолы интерфейсінің қандай пәрмені қолданылады?
+A) dotnet run
+B) dotnet clean
+C) dotnet build
+D) dotnet delete
+=C
+#83
+Жоба файлында көрсетілген барлық тәуелділіктер мен NuGet пакеттерін қалпына келтіретін dotnet пәрмені қайсы?
+A) dotnet restore
+B) dotnet build
+C) dotnet clean
+D) dotnet test
+=A
+#84
+Дайын қолданбаны барлық тәуелділіктерімен бірге орналастыру үшін жариялауға қандай dotnet пәрмені қолданылады?
+A) dotnet run
+B) dotnet publish
+C) dotnet restore
+D) dotnet clean
+=B
+#85
+.NET платформасындағы жинақ (Assembly) дегеніміз не?
+A) Тек мәтіндік құжат
+B) Компиляцияланған код пен метадеректерді қамтитын .dll немесе .exe файлы
+C) Суреттер жинағы
+D) Интернет мекенжайы
+=B
+#86
+dotnet --version пәрмені консольде орындалғанда нені шығарады?
+A) C# кодын
+B) Орнатылған .NET SDK нұсқасын
+C) Windows нұсқасын
+D) Жобаның атауын
+=B
+#87
+Жөндеу символдарының .pdb (Program Database) файлы не үшін арналған?
+A) Бағдарламаны безендіру үшін
+B) Жөндеу кезінде бастапқы код пен орындалатын кодты сәйкестендіру үшін
+C) Файлдарды жою үшін
+D) NuGet пакеттерін орнату үшін
+=B
+#88
+A және B жобалары арасында циклдік тәуелділік (Circular Dependency) болғанда не болады?
+A) Жобалар автоматты түрде бірігеді
+B) Тәуелділік циклі пайда болып, құрастыруда қате туындауы мүмкін
+C) Бағдарлама жылдамдайды
+D) Ешқандай өзгеріс болмайды
+=B
+#89
+Классикалық .NET Framework-тегі GAC (Global Assembly Cache) дегеніміз не?
+A) Ортақ қолданылатын жинақтарды сақтайтын жүйелік қойма
+B) C# редакторы
+C) Деректер базасы
+D) Файлдарды архивтеу құралы
+=A
+#90
+MSBuild утилитасы қандай рөл атқарады?
+A) Суреттерді өңдейді
+B) Жобаларды құрастыру процесін автоматтандырады
+C) Интернетке қосылады
+D) Кодты аудармалайды
+=B
+#91
+.csproj XML-файлындағы қандай тег пайдаланылатын мақсатты платформа нұсқасын көрсетеді (мысалы, net6.0 немесе net8.0)?
+A) OutputType
+B) TargetFramework
+C) AssemblyName
+D) ProjectName
+=B
+#92
+Заманауи C# тілінде <Nullable>enable</Nullable> опциясы қосулы болғанда CS8600 ескертуі нені білдіреді?
+A) Null мәні болуы мүмкін мәнді null қабылдамайтын айнымалыға меншіктеу әрекеті
+B) Класс табылмады
+C) Әдіс шақырылмады
+D) Файл ашылмады
+=A
+#93
+Үшінші тарап кітапханасындағы класты using Namespace; қоспай немесе жинаққа сілтемесіз қолдануға тырысқанда қандай компиляция қатесі пайда болады?
+A) CS0001
+B) CS0246
+C) CS1001
+D) CS0103
+=B
+#94
+dotnet clean пәрмені шақырылғанда не болады?
+A) Жоба толығымен жойылады
+B) Бұрынғы құрастыру нәтижелері тазаланады
+C) Жаңа класс құрылады
+D) NuGet пакеттері орнатылады
+=B
+#95
+Жоба сәтті құрастырылғаннан кейін bin/Debug/net8.0 қалтасында не болады?
+A) Тек бастапқы кодтар
+B) Компиляцияланған бағдарлама және қажетті файлдар
+C) Тек суреттер
+D) Тек жоба параметрлері
+=B
+#96
+C# жоба қалтасында obj ішкі каталогы не үшін жасалады?
+A) Уақытша және аралық құрастыру файлдарын сақтау үшін
+B) Суреттерді сақтау үшін
+C) Дайын бағдарламаны іске қосу үшін
+D) Қолданушы деректерін сақтау үшін
+=A
+#97
+C# / .NET-те динамикалық қосылатын кітапхана файлының қандай кеңейтімі бар?
+A) .txt
+B) .exe
+C) .dll
+D) .jpg
+=C
+#98
+Жобаны құрастыру кезінде .exe кеңейтімді файл .dll кітапханасынан несімен ерекшеленеді?
+A) .exe орындалатын бағдарлама ретінде қолданыла алады, ал .dll басқа бағдарламаларға қосылатын кітапхана
+B) .dll тек суреттерді сақтайды
+C) .exe тек мәтін сақтайды
+D) Екеуінің айырмашылығы жоқ
+=A
+#99
+Ағымдағы C# жобасына NuGet пакетін (мысалы, Newtonsoft.Json) қосуға CLI-дің қандай пәрмені мүмкіндік береді?
+A) dotnet package
+B) dotnet add package Newtonsoft.Json
+C) dotnet install Newtonsoft.Json
+D) dotnet build package
+=B
+#100
+dotnet CLI көмегімен C# жобасынан орнатылған NuGet пакетін қалай жоюға болады?
+A) dotnet remove package Newtonsoft.Json
+B) dotnet delete Newtonsoft.Json
+C) dotnet clean package
+D) dotnet uninstall
+=A
+#101
+.NET шешімінің (solution) түбіріндегі global.json файлы не болып табылады?
+A) Жобаның суреттерін сақтайды
+B) Қолданылатын .NET SDK нұсқасын анықтайды
+C) Деректер базасын құрады
+D) Кластарды автоматты түрде жояды
+=B
+#102
+.NET жинағындағы [AssemblyVersion("1.0.0.0")] атрибуты қандай рөл атқарады?
+A) Жинақтың нұсқа нөмірін анықтайды
+B) Жобаның атауын өзгертеді
+C) Файлды жояды
+D) Бағдарламаны іске қосады
+=A
+#103
+.NET қолданбасын жариялау кезінде «Компоненттерді байланыстыру» (Linking / IL Trimming) кезеңінде не болады?
+A) Барлық файлдар жойылады
+B) Қолданылмайтын код бөліктері алынып тасталады
+C) Код HTML-ге айналады
+D) Жоба атауы өзгереді
+=B
+#104
+.NET-тегі Self-Contained Deployment (автономды орналастыру) деген не?
+A) Қолданбаны іске қосу үшін компьютерде міндетті түрде .NET Runtime болуы керек
+B) Қолданбамен бірге қажетті .NET Runtime компоненттері де жарияланады
+C) Тек бастапқы код жарияланады
+D) Қолданба тек интернет арқылы жұмыс істейді
+=B
+#105
+Ағымдағы орындалатын жинақтың атын алу үшін қолданылатын бұл C# коды нені шығарады?
+var name = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+Console.Write(name != null);
+A) True
+B) False
+C) null
+D) Қате
+=A
+#106
+Visual Studio-да жинақты жөндеу кезінде «Modules» (Модульдер) терезесі не үшін қолданылады?
+A) Жобаның дизайнын өзгерту үшін
+B) Жүктелген модульдер мен жинақтар туралы ақпаратты көру үшін
+C) Жаңа класс құру үшін
+D) Файлдарды жою үшін
+=B
+#107
+Егер екі түрлі класстың бір есімдер кеңістігінде бірдей толық аты болса, құрастыру кезінде қандай қате туындайды?
+A) Атаулардың қайшылығы (Duplicate type definition)
+B) Файл қатесі
+C) Жад қатесі
+D) Қате туындамайды
+=A
+#108
+Тест жобасы бар каталогта консольде dotnet test пәрмені шақырылғанда ол қандай нәтиже береді?
+A) Жобаны жояды
+B) Тесттерді құрастырып, іске қосады және нәтижесін көрсетеді
+C) Тек файлдарды ашады
+D) NuGet пакеттерін өшіреді
+=B
+#109
+C# / .NET жобасының түбіріндегі .gitignore файлы не үшін арналған?
+A) Git жүйесінде бақылауға алынбайтын файлдар мен қалталарды көрсету үшін
+B) Кодты компиляциялау үшін
+C) Бағдарламаны іске қосу үшін
+D) Кластарды біріктіру үшін
+=A
+#110
+.csproj файлындағы <OutputType>Exe</OutputType> параметрінің мақсаты қандай?
+A) Бағдарламаның шығыс түрін анықтау
+B) Бағдарлама тілін өзгерту
+C) Айнымалыларды анықтау
+D) Файлдарды жою
+=A
+#111
+CIL/MSIL жинағының мазмұнын (аралық код пен метадеректер) қарауға қандай утилита мүмкіндік береді?
+A) Notepad
+B) ILDasm
+C) Paint
+D) Calculator
+=B
+#112
+Орындалу кезінде .NET платформасының нұсқасын тексеретін C# кодының келесі үзіндісі нені шығарады?
+var ver = Environment.Version;
+Console.Write(ver.Major >= 4);
+A) True
+B) False
+C) null
+D) Қате
+=A
+#113
+Тәуелді (Framework-Dependent) қолданбаны іске қосуға тырысқанда қажетті .NET Runtime нұсқасы болмаса, не болады?
+A) Бағдарлама автоматты түрде орнатылады
+B) Қолданба іске қосылмай, қажетті Runtime туралы қате хабарламасы шығады
+C) Бағдарлама міндетті түрде жұмыс істейді
+D) Файлдар жойылады
+=B
+#114
+C# тіліндегі деректер типтерін түрлендіру (конвертациялау) рәсімі деп нені түсінеді?
+A) Бір типтегі мәнді басқа типке айналдыру
+B) Файлды жою
+C) Класс құру
+D) Әдісті шақыру
+=A
+#115
+C# тіліндегі типтерді жасырын келтірудің бұл үзіндісі нені шығарады?
+int num = 100;
+double val = num;
+Console.Write(val);
+A) 100
+B) 100.0
+C) 0
+D) Қате
+=A
+#116
+C# тіліндегі типтерді анық келтірудің (Explicit Casting) бұл коды нені шығарады?
+double pi = 3.99;
+int approx = (int)pi;
+Console.Write(approx);
+A) 3.99
+B) 4
+C) 3
+D) Қате
+=C
+#117
+Объект типін қате анық келтіру кезінде орындалу барысында қандай ерекше жағдай орын алады?
+object obj = "Hello";
+int n = (int)obj;
+A) NullReferenceException
+B) InvalidCastException
+C) IndexOutOfRangeException
+D) DivideByZeroException
+=B
+#118
+C# тілінде типтерді келтіру мүмкін болмағанда қауіпсіз as операторы өзін қалай ұстайды?
+A) Бағдарламаны тоқтатады
+B) null мәнін қайтарады
+C) 0 қайтарады
+D) Автоматты түрде қате түзетеді
+=B
+#119
+as операторы арқылы қауіпсіз келтіруі бар бұл код нені шығарады?
+object data = "Sample";
+string text = data as string;
+Console.Write(text != null);
+A) False
+B) True
+C) Sample
+D) Қате
+=B
+#120
+C# тілінде int.TryParse(string s, out int result) әдісі не үшін қолданылады?
+A) Жолды бүтін санға қауіпсіз түрлендіру үшін
+B) Санды жолға айналдыру үшін
+C) Файлды оқу үшін
+D) Объектіні жою үшін
+=A
+#121
+int.TryParse арқылы жарамсыз жолды талдауға (парсинг) тырысқанда бұл код нені шығарады?
+bool success = int.TryParse("abc", out int val);
+Console.Write($"{success}:{val}");
+A) True:0
+B) False:0
+C) False:abc
+D) Қате
+=B
+#122
+C# тіліндегі деректерді сериализациялау (Serialization) процесі деген не?
+A) Объектіні жою
+B) Объектіні сақтау немесе жіберу үшін белгілі бір форматқа айналдыру
+C) Деректерді тексеру
+D) Класты мұрагерлікке алу
+=B
+#123
+Десериализация (Deserialization) деген не?
+A) Файлды жою
+B) JSON немесе басқа форматтағы деректерден объектіні қайта құру
+C) Объектіні архивтеу
+D) Кодты компиляциялау
+=B
+#124
+.NET-тегі қандай есімдер кеңістігі JSON-мен жұмыс істеуге арналған жоғары өнімді класстарды (мысалы, JsonSerializer) ұсынады?
+A) System.IO
+B) System.Text.Json
+C) System.Data
+D) System.Collections
+=B
+#125
+Объектіні JSON жолына сериализациялағанда C# код үзіндісі нені шығарады?
+public class Person
+{
+    public string Name { get; set; }
+}
+Person p = new Person { Name = "Tom" };
+string json = System.Text.Json.JsonSerializer.Serialize(p);
+Console.Write(json.Contains("Tom"));
+A) False
+B) True
+C) Tom
+D) Қате
+=B
+#126
+JSON жолынан C# объектісіне десериализация нені шығарады?
+public class User
+{
+    public int Id { get; set; }
+}
+string json = "{\"Id\":42}";
+User u = System.Text.Json.JsonSerializer.Deserialize<User>(json);
+Console.Write(u.Id);
+A) 0
+B) 42
+C) Id
+D) Қате
+=B
+#127
+Деректерді көшіру рәсімдерінде DTO (Data Transfer Objects — деректерді беру объектілері) не үшін қолданылады?
+A) Деректерді жүйелер немесе қабаттар арасында тасымалдау үшін
+B) Бағдарламаны жою үшін
+C) Файлдарды архивтеу үшін
+D) Интерфейс құру үшін
+=A
+#128
+Жүйелер арасында көшіру кезінде Деректерді сәйкестендіру (Data Mapping) ұғымы деп нені түсінеді?
+A) Деректерді кездейсоқ жою
+B) Бір жүйедегі деректер өрістерін екінші жүйенің сәйкес өрістерімен сәйкестендіру
+C) Бағдарламаны іске қосу
+D) Кластарды мұрагерлікке алу
+=B
+#129
+System.IO.File класының қандай әдісі файлдағы барлық мәтінді бір операциямен жолға оқуға мүмкіндік береді?
+A) File.WriteAllText()
+B) File.ReadAllText()
+C) File.Delete()
+D) File.Create()
+=B
+#130
+System.IO.File ішіндегі қандай әдіс жолдар массивін файлды жасай отырып немесе қайта жаза отырып, мәтіндік файлға жазу үшін қолданылады?
+A) File.ReadAllText()
+B) File.Open()
+C) File.WriteAllLines()
+D) File.Delete()
+=C
+#131
+CSV-жолды жеке өрістерге бөлетін C# код үзіндісі нені шығарады?
+string csvRow = "Alex,25,Developer";
+string[] fields = csvRow.Split(',');
+Console.Write(fields[1]);
+A) Alex
+B) 25
+C) Developer
+D) 3
+=B
+#132
+Жолдар массивінің элементтерін string.Join әдісімен бір CSV-жолға біріктіру нені шығарады?
+string[] data =
+{
+    "Ivan", "30", "Manager"
+}
+;
+string row = string.Join(";", data);
+Console.Write(row);
+A) Ivan30Manager
+B) Ivan;30;Manager
+C) Ivan,30,Manager
+D) Қате
+=B
+#133
+Деректер базасына көшіру үшін күнді белгілі бір жолдық форматқа форматтау кезінде бұл код нені шығарады?
+DateTime dt = new DateTime(2026, 11, 1);
+Console.Write(dt.ToString("yyyy-MM-dd"));
+A) 01.11.2026
+B) 2026-11-01
+C) 11/01/2026
+D) 2026.11.01
+=B
+#134
+Форматы дұрыс емес күні бар жолды DateTime.Parse арқылы талдауға тырысқанда қандай ерекше жағдай орын алады?
+string invalidDate = "not-a-date";
+DateTime dt = DateTime.Parse(invalidDate);
+A) NullReferenceException
+B) FormatException
+C) IndexOutOfRangeException
+D) DivideByZeroException
+=B
+#135
+Күнді жолдан нақты форматты көрсете отырып қауіпсіз түрлендіру үшін қандай әдісті қолдану керек?
+A) DateTime.Now
+B) DateTime.Parse
+C) DateTime.TryParseExact
+D) DateTime.ToString
+=C
+#136
+Көшіру кезіндегі деректердің тұтастығын бақылау (Data Integrity) деп нені түсінеді?
+A) Деректердің дәлдігін, толықтығын және дұрыстығын сақтау
+B) Деректерді кездейсоқ өзгерту
+C) Файлдарды жою
+D) Деректерді қайталау
+=A
+#137
+Көшіру рәсімінде Деректерді валидациялау (Data Validation) кезеңі дегеніміз не?
+A) Деректерді жою
+B) Деректердің талаптарға және белгіленген форматқа сәйкестігін тексеру
+C) Файлды ашу
+D) Бағдарламаны компиляциялау
+=B
+#138
+Enum.TryParse көмегімен жолды санау (enum) мәніне түрлендіргенде бұл код нені шығарады?
+enum Status
+{
+    Active, Inactive
+}
+Enum.TryParse("Active", out Status st);
+Console.Write(st == Status.Active);
+A) False
+B) True
+C) Active
+D) Қате
+=B
+#139
+Үлкен мәндерде жылжымалы үтірлі double санын int типіне түрлендіру кезінде қандай мәселе туындауы мүмкін?
+A) Санның автоматты түрде екі еселенуі
+B) Мәннің int диапазонынан асып кетуіне байланысты OverflowException туындауы мүмкін
+C) Бағдарлама автоматты түрде жабылады
+D) Мән string типіне айналады
+=B
+#140
+Деректердің үлкен көлемін көшіру рәсімдерінде пакеттік өңдеу (Batch Processing) не үшін қолданылады?
+A) Барлық деректерді бір уақытта жою үшін
+B) Деректерді шағын топтарға бөліп өңдеу үшін
+C) Деректерді кездейсоқ өзгерту үшін
+D) Тек бір жазбаны өңдеу үшін
+=B
+#141
+Convert.ToInt32(null) қолданатын келесі C# код үзіндісі нені шығарады?
+int val = Convert.ToInt32(null);
+Console.Write(val);
+A) null
+B) 1
+C) 0
+D) Қате
+=C
+#142
+Convert.ToInt32(null) мен int.Parse(null) әрекетінің басты айырмашылығы неде?
+A) Екеуі де 0 қайтарады
+B) Convert.ToInt32(null) 0 қайтарады, ал int.Parse(null) ArgumentNullException тудырады
+C) Convert.ToInt32(null) қате береді, ал int.Parse(null) 0 қайтарады
+D) Екеуі де True қайтарады
+=B
+#143
+Объектіні булев мәніне Convert.ToBoolean(1) арқылы түрлендіретін C# код үзіндісі нені шығарады?
+bool flag = Convert.ToBoolean(1);
+Console.Write(flag);
+A) False
+B) 0
+C) True
+D) Қате
+=C
+#144
+Көшіру скрипттерінде конвертациялау хаттамалары (Migration Audit Logs) не үшін жасалады?
+A) Көшіру процесінің орындалуын, өзгерістерін және қателерін тіркеу үшін
+B) Файлдарды жою үшін
+C) Кодты қысқарту үшін
+D) Бағдарламаны безендіру үшін
+=A
+#145
+is операторы (Pattern Matching) арқылы тексерумен анық келтіруге тырысқанда бұл код нені шығарады?
+object input = 100;
+if (input is int number)
+{
+    Console.Write(number + 50);
+}
+A) 100
+B) 50
+C) 150
+D) Қате
+=C
+#146
+Конвертациялауды орындау алдындағы келесі типтерді тексеру нені шығарады?
+object val = "123";
+Console.Write(val is string);
+A) False
+B) True
+C) 123
+D) Қате
+=B
+#147
+Сәйкес келмейтін жүйелер арасында деректерді көшіру кезінде аралық схемалар (Staging Area / аралық сақтау ДБ) не үшін қолданылады?
+A) Деректерді уақытша сақтау, тексеру және түрлендіру үшін
+B) Деректерді бірден жою үшін
+C) Бағдарламаны компиляциялау үшін
+D) Тек суреттерді сақтау үшін
+=A
+#148
+Жаппай көшіру процесінде зақымдалған жазба анықталғанда қателерді өңдеудің қандай стратегиясы ұсынылады?
+A) Барлық деректерді жою
+B) Қате жазбаны журналға тіркеп, бөлек сақтап, қалған жазбаларды өңдеуді жалғастыру
+C) Қателерді елемей, барлық деректерді өзгерту
+D) Бағдарламаны әр қатеде міндетті түрде жою
+=B
+#149
+System.Text.Encoding қолдана отырып, байттар массивін жолға және кері түрлендіргенде келесі C# код үзіндісі нені шығарады?
+string original = "Data";
+byte[] bytes = System.Text.Encoding.UTF8.GetBytes(original);
+string restored = System.Text.Encoding.UTF8.GetString(bytes);
+Console.Write(restored == original);
+A) False
+B) Data
+C) True
+D) Қате
+=C
+#150
+Деректерді көшіру рәсімін орындау кезінде транзакциялылықтың (Atomicity) қандай басты ережесі сақталуы тиіс?
+A) Деректердің жартысын ғана көшіру
+B) Барлық операциялар толық орындалуы немесе қате болған жағдайда толығымен кері қайтарылуы керек
+C) Қателерді елемеу
+D) Деректерді кездейсоқ сақтау
+=B
+</script>
+
+<script>
+(function(){
+  var raw = document.getElementById('data').textContent;
+  var blocks = raw.split(/\n#\d+\n/).map(function(s){return s.replace(/^\s*#?\d*\n?/,'').replace(/\s+$/,'')}).filter(Boolean);
+  // re-split safely
+  blocks = raw.replace(/^\s*#1\n/,'').split(/\n#\d+\n/).map(function(s){return s.replace(/\s+$/,'')}).filter(Boolean);
+  var ALL = blocks.map(function(b,i){
+    var lines = b.split('\n'), opts=[], pre=[], ans=-1;
+    lines.forEach(function(l){
+      var m = l.match(/^([ABCD])\) (.*)$/);
+      if(m){opts.push(m[2]);}
+      else if(/^=[ABCD]$/.test(l)){ans='ABCD'.indexOf(l[1]);}
+      else pre.push(l);
+    });
+    return {n:i+1,q:pre[0],code:pre.slice(1).join('\n'),opts:opts,ans:ans};
+  });
+  var Q=ALL.slice(), cur=0, picked={}; 
+  var $=function(id){return document.getElementById(id)};
+  function render(){
+    var q=Q[cur];
+    $('pos').textContent='Сұрақ '+(cur+1)+' / '+Q.length+'  (№'+q.n+')';
+    var ok=0,done=0;Q.forEach(function(x,i){if(picked[i]!==undefined){done++;if(picked[i]===x.ans)ok++}});
+    $('score').textContent='Дұрыс: '+ok+' / '+done;
+    $('prog').style.width=(done/Q.length*100)+'%';
+    $('qt').textContent=(cur+1)+'. '+q.q;
+    var pc=$('qc'); if(q.code){pc.textContent=q.code;pc.classList.remove('hide')}else pc.classList.add('hide');
+    var box=$('opts');box.innerHTML='';
+    q.opts.forEach(function(t,i){
+      var b=document.createElement('button');b.className='opt';b.textContent='ABCD'[i]+') '+t;
+      if(picked[cur]!==undefined){
+        b.disabled=true;
+        if(i===q.ans)b.classList.add('ok');
+        else if(i===picked[cur])b.classList.add('no');
+      }
+      b.onclick=function(){picked[cur]=i;render()};
+      box.appendChild(b);
+    });
+    $('prev').disabled=cur===0;
+    $('next').disabled=cur===Q.length-1;
+    var g=$('grid');g.innerHTML='';
+    Q.forEach(function(x,i){
+      var b=document.createElement('button');b.textContent=i+1;
+      if(i===cur)b.classList.add('cur');
+      if(picked[i]!==undefined)b.classList.add(picked[i]===x.ans?'ok':'no');
+      b.onclick=function(){cur=i;render();window.scrollTo(0,0)};
+      g.appendChild(b);
+    });
+  }
+  function finish(){
+    var ok=0,done=0;Q.forEach(function(x,i){if(picked[i]!==undefined){done++;if(picked[i]===x.ans)ok++}});
+    var r=$('result');r.classList.remove('hide');
+    var pct=Math.round(ok/Q.length*100);
+    r.innerHTML='<div class="res"><div class="big">'+ok+' / '+Q.length+' ('+pct+'%)</div><p>Жауап берілді: '+done+' · Қате: '+(done-ok)+' · Жауап берілмеді: '+(Q.length-done)+'</p></div>';
+    r.scrollIntoView({behavior:'smooth'});
+  }
+  function start(){
+    Q=ALL.slice();
+    if($('shuf').checked){for(var i=Q.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=Q[i];Q[i]=Q[j];Q[j]=t}}
+    picked={};cur=0;$('result').classList.add('hide');render();window.scrollTo(0,0);
+  }
+  $('prev').onclick=function(){if(cur>0){cur--;render()}};
+  $('next').onclick=function(){if(cur<Q.length-1){cur++;render()}};
+  $('finish').onclick=finish;
+  $('restart').onclick=start;
+  $('shuf').onchange=start;
+  render();
+})();
+</script>
+</body>
+</html>
